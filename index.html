@@ -163,7 +163,7 @@
         }
 
         /* =========================================
-           HEADER
+           HEADER & NAV
            ========================================= */
         header {
             position: fixed;
@@ -183,6 +183,36 @@
             align-items: center;
         }
 
+        /* Container Esquerdo (Voltar + Logo) */
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 15px; /* Espaço entre voltar e logo */
+        }
+
+        .nav-back {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            transition: var(--transition);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 5px 12px;
+            border-radius: 20px;
+        }
+
+        .nav-back:hover {
+            color: #fff;
+            border-color: var(--gold-primary);
+        }
+
+        .nav-back i {
+            margin-right: 5px;
+            font-size: 0.7rem;
+        }
+
         .logo {
             font-family: var(--font-display);
             font-size: 1.3rem;
@@ -198,10 +228,18 @@
             font-size: 0.75rem;
         }
 
+        /* Ajustes Mobile para Nav */
+        @media (max-width: 380px) {
+            .nav-back span { display: none; } /* Esconde texto em telas muito pequenas */
+            .nav-back i { margin-right: 0; }
+            .logo { font-size: 1.1rem; }
+        }
+
         @media (min-width: 768px) {
             header { padding: 20px 0; }
             .logo { font-size: 1.8rem; }
             nav .btn { padding: 12px 30px; font-size: 0.85rem; }
+            .nav-back { font-size: 0.85rem; padding: 6px 15px; }
         }
 
         /* =========================================
@@ -242,23 +280,21 @@
             line-height: 1.5;
         }
 
-        /* Ajuste da Moldura Hero */
         .hero-image-wrapper {
             position: relative;
             border-radius: 120px 120px 0 0; 
             overflow: hidden;
             border: 1px solid rgba(212, 175, 55, 0.3);
             box-shadow: 0 0 40px rgba(0,0,0,0.5);
-            /* Height removido para adaptar ao conteúdo */
             margin: 0 auto;
             width: 100%;
             max-width: 400px;
-            line-height: 0; /* Remove espaço extra abaixo da imagem */
+            line-height: 0;
         }
         
         .hero-image-wrapper img {
             width: 100%;
-            height: auto; /* Altura automática */
+            height: auto;
             display: block;
         }
 
@@ -272,7 +308,6 @@
             .hero-text { text-align: left; }
             .hero-text h1 { font-size: 3.8rem; }
             .hero-image-wrapper {
-                /* Height override removido */
                 border-radius: 200px 200px 0 0;
                 margin: 0;
                 max-width: none;
@@ -342,27 +377,25 @@
             font-size: 1.1rem;
         }
 
-        /* Ajuste da Moldura Sobre */
         .about-image-wrapper {
              width: 100%;
-             /* Height removido */
              border-radius: 12px; 
              overflow: hidden;
              border: 1px solid rgba(212, 175, 55, 0.2); 
              margin-top: 1rem;
-             line-height: 0; /* Remove espaço extra abaixo da imagem */
+             line-height: 0;
         }
 
         .about-image-wrapper img {
             width: 100%;
-            height: auto; /* Altura automática */
+            height: auto;
             display: block;
         }
 
         @media (min-width: 768px) {
             .about-content { grid-template-columns: 1fr 1fr; gap: 4rem; }
             .about-image { order: -1; }
-            .about-image-wrapper { margin-top: 0; /* Height override removido */ }
+            .about-image-wrapper { margin-top: 0; }
         }
 
         /* Oferta */
@@ -498,6 +531,19 @@
             font-size: 0.85rem;
         }
 
+        .footer-back-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+        }
+        
+        .footer-back-link:hover {
+            color: #fff;
+        }
+
         /* =========================================
            ANIMAÇÕES
            ========================================= */
@@ -518,7 +564,13 @@
     <header id="header">
         <div class="container">
             <nav>
-                <div class="logo">Kelly<span>Ramos</span></div>
+                <div class="nav-left">
+                    <a href="https://ministeriomichelbreno.com.br/" class="nav-back">
+                        <i class="fas fa-chevron-left"></i> <span>Voltar</span>
+                    </a>
+                    <div class="logo">Kelly<span>Ramos</span></div>
+                </div>
+                
                 <a href="https://pay.kiwify.com.br/npgKy38" target="_blank" class="btn">Começar Agora</a>
             </nav>
         </div>
@@ -662,6 +714,10 @@
 
     <footer>
         <div class="container">
+            <a href="https://ministeriomichelbreno.com.br/" class="footer-back-link">
+                <i class="fas fa-arrow-left" style="margin-right: 8px;"></i> Voltar para Ministério
+            </a>
+            
             <p>&copy; 2025 Kelly Ramos - Despertar Profético. Todos os direitos reservados.</p>
         </div>
     </footer>
