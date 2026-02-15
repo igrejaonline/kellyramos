@@ -187,19 +187,19 @@
         .nav-left {
             display: flex;
             align-items: center;
-            gap: 15px; /* Espaço entre voltar e logo */
+            gap: 15px; 
         }
 
         .nav-back {
             color: var(--text-muted);
-            font-size: 0.8rem;
+            font-size: 0.7rem; /* Reduzido */
             text-transform: uppercase;
             letter-spacing: 1px;
             display: flex;
             align-items: center;
             transition: var(--transition);
             border: 1px solid rgba(255,255,255,0.1);
-            padding: 5px 12px;
+            padding: 4px 10px; /* Reduzido */
             border-radius: 20px;
         }
 
@@ -210,7 +210,7 @@
 
         .nav-back i {
             margin-right: 5px;
-            font-size: 0.7rem;
+            font-size: 0.65rem; /* Reduzido */
         }
 
         .logo {
@@ -230,7 +230,7 @@
 
         /* Ajustes Mobile para Nav */
         @media (max-width: 380px) {
-            .nav-back span { display: none; } /* Esconde texto em telas muito pequenas */
+            .nav-back span { display: none; } 
             .nav-back i { margin-right: 0; }
             .logo { font-size: 1.1rem; }
         }
@@ -239,7 +239,7 @@
             header { padding: 20px 0; }
             .logo { font-size: 1.8rem; }
             nav .btn { padding: 12px 30px; font-size: 0.85rem; }
-            .nav-back { font-size: 0.85rem; padding: 6px 15px; }
+            .nav-back { font-size: 0.75rem; padding: 5px 12px; } /* Reduzido Desktop */
         }
 
         /* =========================================
